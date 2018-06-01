@@ -53,11 +53,12 @@ class Board extends Component {
 
   addNewList = () => {
     this.setState({
-      cards:this.state.cards.concat({
+      lists:this.state.lists.concat({
         _id:4,
         title:"새 리스트"
       })
     })
+    console.log(this.state.cards);
   }
 
   render() {
