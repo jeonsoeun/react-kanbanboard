@@ -1,0 +1,25 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.Board{
+  padding: 0px 30px;
+}
+.List-wrap{
+  float:left;
+  width:250px;
+  height: 100%;
+  margin-right: 20px;
+}
+
+.List.box{
+  background:floralwhite;
+  padding:10px;
+}
+
+.Card.box{
+  margin-bottom:1.2rem;
+  padding:0.9rem;
+}
