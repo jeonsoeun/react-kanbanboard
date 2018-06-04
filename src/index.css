@@ -1,18 +1,46 @@
+html, body, #root, .App {
+  height: 100%;
+  overflow-y: hidden;
+}
 body {
   height: 100%;
   margin: 0;
   padding: 0;
   font-family: sans-serif;
 }
+.App{
+  display: flex;
+  flex-direction: column;
+}
+
+.contents{
+  position: relative;
+  flex-grow: 1;
+}
 
 .Board{
-  padding: 0px 30px;
+  flex-grow: 1;
+  position: absolute;
+  padding: 10px 0;
+  white-space: nowrap;
+  overflow-y: hidden;
+  overflow-x:scroll;
+  vertical-align: top;
+  width:100%;
+  height:100%
 }
+
 .List-wrap{
-  float:left;
+  display: inline-block;
+  position: relative;
+  left:0px;
+  top:0px;
+  bottom: 0;
+  right:0;
   width:250px;
   height: 100%;
-  margin-right: 20px;
+  margin: 0 8px;
+  vertical-align: top;
 }
 
 .List.box{

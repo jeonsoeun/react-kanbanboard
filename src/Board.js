@@ -86,6 +86,7 @@ class Board extends Component {
 
   render() {
     return (
+      <div className="contents">
       <div className="Board">
         {
           this.state.lists.map(list => (
@@ -102,6 +103,7 @@ class Board extends Component {
           ))
         }
         <button className="button is-outlined" onClick={this.addNewList}>리스트 추가</button>
+      </div>
       </div>
     )
   }
