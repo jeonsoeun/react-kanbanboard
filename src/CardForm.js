@@ -5,10 +5,23 @@ class CardForm extends React.Component {
     isFormVisible: false
   }
 
+  addCard = () => {
+    this.setState(
+      (state) => ({
+        isFormVisible: true
+      })
+    )
+  }
+
   render() {
+    let isFormVisible = this.state.isFormVisible;
     return (
       <div className="CardForm">
-        <button className="button is-outlined">추가</button>
+        {isFormVisible ? (
+          <p>Form</p>
+        ) : (
+            <button className="button is-outlined" onClick={this.addCard}>추가</button>
+        )}
       </div>
     )
   }
