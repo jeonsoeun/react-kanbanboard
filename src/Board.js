@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import List from './List';
 
 class Board extends Component {
+  constructor(props){
+    super(props);
+    this.addNewCard = this.addNewCard.bind(this);
+  }
+  
   state = {
     lists: [
       {
@@ -50,19 +55,33 @@ class Board extends Component {
       }
     ],
 
-    listCount:3
+    listCount:3,
+    cardCount:5
   }
 
   addNewList = () => {
-    const listCount = this.state.listCount;
+    const newListCount = this.state.listCount+1;
     this.setState({
-      listCount:this.state.listCount +1,
+      listCount:newListCount,
       lists:this.state.lists.concat({
-        _id:listCount+1,
+        _id:newListCount,
         title:"새 리스트"
       })
     })
     console.log(this.state.cards);
+  }
+
+  addNewCard(listId, title, memo) {
+    const newCardCount = this.state.cardCount+1;
+    this.setState({
+      cardCount:newCardCount,
+      cards:this.state.cards.concat({
+        _id:newCardCount,
+        _listID:listId,
+        title:title,
+        memo:memo
+      })
+    })
   }
 
   render() {
@@ -70,11 +89,16 @@ class Board extends Component {
       <div className="Board">
         {
           this.state.lists.map(list => (
-            <List key={list._id} title={list.title} cards={
-              this.state.cards.filter(card => (
-                card._listID === list._id
-              ))
-            } />
+            <List key={list._id}
+                  listId={list._id}
+                  title={list.title} 
+                  cards={
+                    this.state.cards.filter(card => (
+                    card._listID === list._id
+                  ))
+                  }
+                  addNewCard={this.addNewCard}
+            />
           ))
         }
         <button className="button is-outlined" onClick={this.addNewList}>리스트 추가</button>

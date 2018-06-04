@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Card from './Card'
 import CardFrom from './CardForm'
 
@@ -12,9 +12,8 @@ function List(props) {
             <Card key={card._id} title={card.title} memo={card.memo} />
           ))
         }
-        <CardFrom />
-      </div>
-      
+        <CardFrom listId={props.listId} addNewCard={props.addNewCard}/>
+      </div>  
     </div>
   )
 }

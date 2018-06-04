@@ -18,8 +18,8 @@
 .is-logged-in{
   float: right;
   position: relative;
-  bottom: 0px;
-  margin-top: 10px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .login, .join-in, .user-profile, .user-name{
