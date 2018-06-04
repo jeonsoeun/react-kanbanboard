@@ -1,5 +1,31 @@
-.img-profile{
-  width:20px;
-  height:20px;
-  background-color: blue;
+.banner{
+  position: relative;
+  width:100%;
+  height: 40px;
+  margin-bottom: 10px;
+  border-bottom: solid 1px lightgray
+}
+.logo{
+  float: left;
+  position: relative;
+  left:0;
+  top:0;
+  width:200px;
+  height:40px;
+  background:yellowgreen
+}
+
+.is-logged-in{
+  float: right;
+  position: relative;
+  bottom: 0px;
+  margin-top: 10px;
+}
+
+.login, .join-in, .user-profile, .user-name{
+  margin-right: 10px;
+}
+
+.user-profile{
+ 
 }

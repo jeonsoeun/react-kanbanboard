@@ -48,13 +48,17 @@ class Board extends Component {
         title: '카드3-2',
         memo: '메모3-2'
       }
-    ]
+    ],
+
+    listCount:3
   }
 
   addNewList = () => {
+    const listCount = this.state.listCount;
     this.setState({
+      listCount:this.state.listCount +1,
       lists:this.state.lists.concat({
-        _id:4,
+        _id:listCount+1,
         title:"새 리스트"
       })
     })
