@@ -10,7 +10,6 @@ class Banner extends React.Component {
     let isLoggedIn = this.state.isLoggedIn;
     let userName = this.props.userName;
     userName = userName === "" || userName === undefined ? "(user Name)" : userName;
-    console.log(userName);
     return (
       <div className="banner">
         <div className="logo"></div>

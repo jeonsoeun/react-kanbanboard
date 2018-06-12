@@ -1,3 +1,8 @@
+.box{
+  margin-bottom:1.2rem;
+  padding:0.9rem;
+}
+
 html, body, #root, .App {
   height: 100%;
   overflow-y: hidden;
@@ -43,17 +48,73 @@ body {
   vertical-align: top;
 }
 
+.ListForm{
+  display: inline-block;
+}
+
 .List.box{
   background:floralwhite;
   padding:10px;
 }
 
-.Card.box{
-  margin-bottom:1.2rem;
-  padding:0.9rem;
+.List .title:hover{
+
 }
 
-.add-btn, .cancel-btn{
-  margin-right: 10px;
-  margin-top:10px;
+.Card{
+  position: relative;
+}
+
+.Card:hover{
+  background:#f6f6f6
+}
+
+.field .control{
+  margin:10px 0px;
+}
+
+.is-grouped button{
+  margin: 0 20px 0 0
+}
+
+.btn-delete{
+  position: absolute;
+  right:5px;
+  top:10px;
+}
+
+.btn-edit{
+  position: absolute;
+  right:5px;
+  top: 45px;
+}
+
+
+.buttons{
+  position: absolute;
+  right:5px;
+  top:10px;
+}
+
+.dropdown-trigger{
+  position: relative;
+  z-index: 20;
+}
+
+.dropdown-content{
+  position: absolute;
+  left:80%;
+  top:20px;
+  width:180px;
+  z-index: 50;
+}
+
+.btn-close{
+  position: absolute;
+  right:-3px;
+  top:3px;
+}
+
+.dropdown-content hr{
+  margin: 0.4em
 }
