@@ -1,3 +1,7 @@
+li{
+  list-style: none;
+}
+
 .box{
   margin-bottom:1.2rem;
   padding:0.9rem;
@@ -53,7 +57,7 @@ body {
 }
 
 .List.box{
-  background:floralwhite;
+  background:#eaeae3;
   padding:10px;
 }
 
@@ -63,10 +67,17 @@ body {
 
 .Card{
   position: relative;
+  padding-bottom: 1px;
 }
 
-.Card:hover{
-  background:#f6f6f6
+.Card-wrap{
+  position: relative;
+  padding-bottom: 1px;
+}
+
+.Card.box:hover{
+  position: relative;
+  background:#f6f6f6;
 }
 
 .field .control{
@@ -98,7 +109,7 @@ body {
 
 .dropdown-trigger{
   position: relative;
-  z-index: 20;
+  z-index: 5;
 }
 
 .dropdown-content{
@@ -106,7 +117,7 @@ body {
   left:80%;
   top:20px;
   width:180px;
-  z-index: 50;
+  z-index: 10;
 }
 
 .btn-close{
@@ -115,6 +126,43 @@ body {
   top:3px;
 }
 
-.dropdown-content hr{
+.dropdown-content hr, .Card-wrap hr{
   margin: 0.4em
+}
+
+.members.control.is-grouped{
+  margin-bottom:3px;
+}
+
+.member-image{
+  position: relative;
+  left:0;
+  top:50%;
+  z-index: 1;
+}
+
+.Popup{
+  position: absolute;
+  left:50%;
+  top:20px;
+  width:250px;
+  z-index: 10;
+}
+
+.span.text.name{
+  position: relative;
+  display: inline-block;
+  left:10px;
+  top: 50%;
+  height:2.1rem;
+  transform: translateY(-50%)
+}
+
+.list-item{
+  list-style: none;
+  height: 2.1rem;
+}
+
+.list-item:hover{
+  background:#99ce5c
 }

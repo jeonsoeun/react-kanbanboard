@@ -8,7 +8,8 @@ class BFormOrText extends React.Component {
     super(props);
     this.state = {
       isFormVisible: false,
-      text: props.text
+      text: props.text,
+      isMarkdown:this.props.isMarkdown || false
     }
   }
 
@@ -41,7 +42,15 @@ class BFormOrText extends React.Component {
   render() {
     const isFormVisible = this.state.isFormVisible;
     const text = (
-      <Markdown className={this.props.textClass} onClick={this.toggleForm} contents={this.props.text}>{this.props.text}</Markdown>
+      <div className="memo" onClick={this.toggleForm}>
+      {
+        this.state.isMarkdown ? 
+        (<Markdown className={this.props.textClass} contents={this.props.text}>{this.props.text}</Markdown>)
+        :
+        (<p className={this.props.textClass}>{this.props.text}</p>)
+      }
+      <div/>
+      </div>
     )
     let inputForm = (
       <div className="field">
@@ -58,7 +67,7 @@ class BFormOrText extends React.Component {
       </div>
     )
     return (
-      <div className="BFromOrButton">
+      <div className="BFormOrText control">
         {
           isFormVisible ? inputForm : text
         }

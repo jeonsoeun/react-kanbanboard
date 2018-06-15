@@ -17,7 +17,7 @@ class List extends React.Component {
   }
 
   editList = (title) => {
-    this.props.editList(this.props.listId,title);
+    this.props.editList(this.props.listId, title);
   }
 
   deleteList = () => {
@@ -27,7 +27,7 @@ class List extends React.Component {
   render() {
     const editForm = (
       <div className="field">
-        <EditList toggleEditList={this.toggleEditList} title={this.props.title} editList={this.editList}/>
+        <EditList toggleEditList={this.toggleEditList} title={this.props.title} editList={this.editList} />
       </div>
     )
     const list = (
@@ -42,19 +42,17 @@ class List extends React.Component {
     return (
       <div className="List-wrap">
         <div className="List box">
-        {
-          this.state.isEditList ? editForm : list
-        }
+          {
+            this.state.isEditList ? editForm : list
+          }
           {
             this.props.cards.map((card) => (
               <Card
                 key={card._id}
-                _id={card._id}
-                listId={card._listId}
-                title={card.title}
-                memo={card.memo}
+                card={card}
                 deleteCard={this.props.deleteCard}
                 editCard={this.props.editCard}
+                members={this.props.members}
               />
             ))
           }

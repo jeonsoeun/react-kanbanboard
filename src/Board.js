@@ -9,6 +9,28 @@ class Board extends Component {
   }
 
   state = {
+    members:[
+      {
+        id:'A',
+        nick:'apple',
+        image:'https://placeimg.com/640/480/any/a'
+      },
+      {
+        id:'B',
+        nick:'banana',
+        image:'https://placeimg.com/480/480/any/b'
+      },
+      {
+        id:'C',
+        nick:'cake',
+        image:'https://placeimg.com/480/480/any/c'
+      },
+      {
+        id:'D',
+        nick:'ban',
+        image:'https://placeimg.com/480/480/any/d'
+      }
+    ],
     lists: [
       {
         _id: 1,
@@ -28,31 +50,36 @@ class Board extends Component {
         _id: 1,
         _listId: 1,
         title: '카드1',
-        memo: '메모1'
+        memo: '메모1',
+        members:['A', 'B','C']
       },
       {
         _id: 2,
         _listId: 1,
         title: '카드2',
-        memo: '===Marked/n- a/n- b'
+        memo: '# Marked in the browser\n\nRendered by **marked**.',
+        members:['A', 'C']
       },
       {
         _id: 3,
         _listId: 1,
         title: '카드3',
-        memo: '메모3'
+        memo: '메모3',
+        members:['A', 'D']
       },
       {
         _id: 4,
         _listId: 2,
         title: '카드2-1',
-        memo: '메모2-1'
+        memo: '메모2-1',
+        members:[ 'B']
       },
       {
         _id: 5,
         _listId: 3,
         title: '카드3-2',
-        memo: '메모3-2'
+        memo: '메모3-2',
+        members:['A', 'D']
       }
     ],
 
@@ -149,6 +176,7 @@ class Board extends Component {
                 editList={this.editList}
                 deleteCard={this.deleteCard}
                 editCard={this.editCard}
+                members={this.state.members}
               />
             ))
           }

@@ -2,8 +2,8 @@
 import React from 'react'
 
 function BInput (props) {
-  const textarea = (<textarea className="textarea is-primary" placeholder={props.placeholder} onChange={props.onChange} value={props.value}/>);
-  const inputText = (<input className="input is-primary" type="text" placeholder={props.placeholder} onChange={props.onChange} value={props.value}/>)
+  const textarea = (<textarea className="textarea" placeholder={props.placeholder} onChange={props.onChange} value={props.value}/>);
+  const inputText = (<input className="input" type="text" placeholder={props.placeholder} onChange={props.onChange} value={props.value}/>)
   return(
     <div className="control">
       {

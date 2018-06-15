@@ -1,23 +1,22 @@
 import React from 'react';
-import marked from 'marked'
+import marked from 'marked';
 
 class Markdown extends React.Component{
   constructor(props) {
     super(props);
     marked.setOptions({
-      glf:true,
+      gfm:true,
       tables:true
     });
   }
 
   render() {
-    console.log()
-    const markedHTML ='set';
+    const markedHTML =marked(this.props.children);
     return(
-      <div dangerouslySetInnerHTML={{__html:markedHTML}}>
+      <div className="control" dangerouslySetInnerHTML={{__html:markedHTML}}>
       </div>
     )
   }
 }
 
-export default marked;
+export default Markdown;

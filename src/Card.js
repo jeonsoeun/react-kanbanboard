@@ -7,6 +7,7 @@ import EditCard from './EditCard';
 import BFormOrText from './BFormOrText';
 import CardModal from './CardModal';
 import Markdown from './Markdown';
+import ShowMembers from './ShowMembers';
 
 class Card extends React.Component {
   state = {
@@ -16,7 +17,7 @@ class Card extends React.Component {
   }
 
   deleteCard = () => {
-    this.props.deleteCard(this.props._id);
+    this.props.deleteCard(this.props.card._id);
   }
   editCancel = () => {
     this.toggleDropdown();
@@ -24,7 +25,7 @@ class Card extends React.Component {
   }
 
   editCard = (title, memo) => {
-    this.props.editCard(this.props._id, this.props.listId, title, memo);
+    this.props.editCard(this.props.card._id, this.props.card.listId, title, memo);
   }
 
   toggleEditForm = () => {
@@ -53,16 +54,16 @@ class Card extends React.Component {
   render() {
     const newButtons = (
       <div className="buttons dropdown">
-         <button className="dropdown-trigger button is-white" onClick={this.toggleDropdown}>
-            <i className="fas fa-ellipsis-v"></i>
-          </button>
-         {
+        <button className="dropdown-trigger button is-white" onClick={this.toggleDropdown}>
+          <i className="fas fa-ellipsis-v"></i>
+        </button>
+        {
           this.state.isDropdown ? (
             <div className="dropdown-content">
               <p className="is-size-6 has-text-centered">List</p>
-              <hr/>
+              <hr />
               <button className="button is-white btn-close" onClick={this.toggleDropdown}>
-                <i className="fas fa-times"/>
+                <i className="fas fa-times" />
               </button>
               <a className="dropdown-item" onClick={this.deleteCard}>delete</a>
               <a className="dropdown-item" onClick={this.editCancel}>edit</a>
@@ -70,7 +71,6 @@ class Card extends React.Component {
           ) : <div className="dropdown-off" />
         }
       </div>
-
     )
     const buttons = (
       <div className="buttons">
@@ -78,27 +78,45 @@ class Card extends React.Component {
         <button className="button is-small is-warning btn-edit" onClick={this.toggleEditForm}>edit</button>
       </div>
     )
-
+    const cardMember = this.props.card.members;
     const card = (
       <div className="Card-wrap">
-      {
+        {
           newButtons
-      }
-      <div className="Card box" onClick={this.handleClickCard}>
-        
-        <h2 className="title is-6">{this.props.title}</h2>
-        <Markdown className="memo is-size-7" contents="aaaaa">{this.props.memo}</Markdown>
-      </div>
+        }
+        <div className="Card box" onClick={this.handleClickCard}>
+          <div className="field">
+            <h2 className="title is-6">{this.props.card.title}</h2>
+            <Markdown className="memo is-size-7" contents="aaaaa">{this.props.card.memo}</Markdown>
+            <ShowMembers
+              cardMembers={
+                this.props.members.filter(member => (
+                  this.props.card.members.find(cm => (
+                    member.id === cm
+                  ))
+                ))
+              }
+              members={this.props.members}
+            />
+          </div>
+        </div>
       </div>
     )
 
     const editCardForm = (
-      <EditCard title={this.props.title} memo={this.props.memo} editCard={this.editCard} toggleEditForm={this.toggleEditForm} />
+      <EditCard title={this.props.card.title} memo={this.props.card.memo} editCard={this.editCard} toggleEditForm={this.toggleEditForm} />
     )
 
     const modalBox = (
       <div className="modal is-active">
-        <CardModal title={this.props.title} memo={this.props.memo} toggleModal={this.toggleModal} editCard={this.editCard}/> 
+        <CardModal
+          title={this.props.card.title}
+          memo={this.props.card.memo}
+          toggleModal={this.toggleModal}
+          editCard={this.editCard}
+          members={this.props.members}
+          cardMembers={this.props.card.members}
+        />
       </div>
     )
 

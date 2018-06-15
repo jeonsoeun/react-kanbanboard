@@ -2,12 +2,21 @@ import React from 'react';
 import Board from './Board';
 import Banner from './Banner';
 
-function App() {
-  return (
-    <div className="App">
-      <Board/>
-    </div>
-  );
+class App extends React.Component {
+  componentDidMount(){
+    window.addEventListener("click",(ev) => {
+      const targetClass = ev.target.className;
+      
+    })
+  }
+  render() {
+    return (
+      <div className="App">
+        <Banner />
+        <Board />
+      </div>
+    )
+  }
 }
 
 
