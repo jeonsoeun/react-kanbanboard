@@ -26,13 +26,9 @@ class CardModal extends React.Component {
             <BFormOrText textClass="title is-5" text={this.props.title} placeholder="" isTextarea={false} setText={this.editTitle}/>
             <div className="control">
               <ShowMembers
-                members={
-                  this.props.members.filter(member => (
-                    this.props.cardMembers.find(cm => (
-                      member.id === cm
-                    ))
-                  ))
-                }
+              cardMembersId = {this.props.cardMembersId}
+              members={this.props.members}
+              editCardMembers = {this.props.editCardMembers}
               />
               
             </div>

@@ -80,6 +80,10 @@ body {
   background:#f6f6f6;
 }
 
+.modal-content{
+  height:500px
+}
+
 .field .control{
   margin:10px 0px;
 }
@@ -137,7 +141,7 @@ body {
 .member-image{
   position: relative;
   left:0;
-  top:50%;
+  top:0;
   z-index: 1;
 }
 
@@ -149,20 +153,33 @@ body {
   z-index: 10;
 }
 
-.span.text.name{
+.member.name{
+  float: left;
   position: relative;
-  display: inline-block;
-  left:10px;
-  top: 50%;
-  height:2.1rem;
-  transform: translateY(-50%)
+  left:0.5rem;
+  top:0rem;
 }
 
 .list-item{
+  position: relative;
   list-style: none;
   height: 2.1rem;
+  top:0;
+  width: 100%;
+}
+
+.list-item .member-image{
+  float: left;
 }
 
 .list-item:hover{
   background:#99ce5c
+}
+
+.member-check{
+  float: left;
+  display: inline-block;
+  position: relative;
+  top:0;
+  left:10px;
 }

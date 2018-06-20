@@ -25,7 +25,23 @@ class Card extends React.Component {
   }
 
   editCard = (title, memo) => {
-    this.props.editCard(this.props.card._id, this.props.card.listId, title, memo);
+    this.props.editCard(
+      this.props.card._id, 
+      this.props.card._listId, 
+      title, 
+      memo, 
+      this.props.card.members
+    );
+  }
+
+  editCardMembers = (members) => {
+    this.props.editCard(
+      this.props.card._id, 
+      this.props.card._listId, 
+      this.props.card.title, 
+      this.props.card.memo, 
+      members
+    );
   }
 
   toggleEditForm = () => {
@@ -89,14 +105,9 @@ class Card extends React.Component {
             <h2 className="title is-6">{this.props.card.title}</h2>
             <Markdown className="memo is-size-7" contents="aaaaa">{this.props.card.memo}</Markdown>
             <ShowMembers
-              cardMembers={
-                this.props.members.filter(member => (
-                  this.props.card.members.find(cm => (
-                    member.id === cm
-                  ))
-                ))
-              }
+              cardMembersId = {this.props.card.members}
               members={this.props.members}
+              editCardMembers = {this.editCardMembers}
             />
           </div>
         </div>
@@ -114,8 +125,9 @@ class Card extends React.Component {
           memo={this.props.card.memo}
           toggleModal={this.toggleModal}
           editCard={this.editCard}
+          cardMembersId = {this.props.card.members}
           members={this.props.members}
-          cardMembers={this.props.card.members}
+          editCardMembers = {this.editCardMembers}
         />
       </div>
     )

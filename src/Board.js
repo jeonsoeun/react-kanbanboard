@@ -106,7 +106,8 @@ class Board extends Component {
         _id: newCardCount,
         _listId: listId,
         title: title,
-        memo: memo
+        memo: memo,
+        members:[]
       })
     })
   }
@@ -141,7 +142,7 @@ class Board extends Component {
     })
   }
 
-  editCard = (cardId, listId, title, memo) => {
+  editCard = (cardId, listId, title, memo, members) => {
     this.setState({
       cards: this.state.cards.map((card)=>{
         if(card._id !== cardId){
@@ -151,10 +152,12 @@ class Board extends Component {
           _id:cardId,
           _listId:listId,
           title:title,
-          memo:memo
+          memo:memo,
+          members:members
         }
       })
     })
+    console.log(this.state)
   }
 
   render() {
