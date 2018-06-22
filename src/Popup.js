@@ -1,6 +1,5 @@
 // titile togglePopup
 import React from 'react';
-import BInput from './BInput'
 
 class Popup extends React.Component{
   constructor(props){
@@ -8,6 +7,18 @@ class Popup extends React.Component{
     this.state = {
 
     }
+  }
+
+
+//이거 잘 안됨.. ㅠ
+  componentDidMount(){
+    window.addEventListener("click",(ev) => {
+      const targetClass = ev.target.className;
+      console.log(isPopup)
+      if(this.props.isPopup && targetClass!=='Popup'){
+        this.props.togglePop();
+      }
+    })
   }
 
   stopBubbling = (e) =>{

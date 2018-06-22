@@ -6,7 +6,6 @@ class App extends React.Component {
   componentDidMount(){
     window.addEventListener("click",(ev) => {
       const targetClass = ev.target.className;
-      
     })
   }
   render() {
