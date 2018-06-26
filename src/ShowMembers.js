@@ -14,6 +14,7 @@ class ShowMembers extends React.Component {
     this.setState({
       isAddMemeber: !this.state.isAddMemeber
     })
+    console.log(`call toggleAddMember: ${this.state.isAddMemeber}`)
   }
 
   handleAddMember = (e) => {
@@ -24,10 +25,8 @@ class ShowMembers extends React.Component {
   handleMember = (id) => {
     if (this.isMember(id)) {
       this.props.editCardMembers(this.props.cardMembersId.filter(member => {
-             return member !== id
-           }
-           )
-         )
+        return member !== id
+      }))
     } else {
       this.props.editCardMembers(this.props.cardMembersId.concat(id));
     }

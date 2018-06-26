@@ -9,17 +9,20 @@ class Popup extends React.Component{
     }
   }
 
-
-//이거 잘 안됨.. ㅠ
-  componentDidMount(){
-    window.addEventListener("click",(ev) => {
-      const targetClass = ev.target.className;
-      console.log(isPopup)
+  // ** 다른 부분 누르면 팝업창 닫힘.
+  handlePopup = (ev) => {
+const targetClass = ev.target.className;
       if(this.props.isPopup && targetClass!=='Popup'){
         this.props.togglePop();
       }
-    })
   }
+  componentDidMount(){
+    window.addEventListener("click",this.handlePopup);
+  }
+  componentWillUnmount(){
+    window.removeEventListener("click", this.handlePopup);
+  }
+// **
 
   stopBubbling = (e) =>{
     e.stopPropagation();
