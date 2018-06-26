@@ -58,7 +58,7 @@ class ShowMembers extends React.Component {
 
     const addMemberPopup = (
       <Popup title="AddMember" togglePop={this.toggleAddMember} isPopup={this.state.isAddMemeber}>
-        <BInput placeholder="search member"></BInput>
+        
         <ul className="list members">
           {
             this.props.members.map(member => (
