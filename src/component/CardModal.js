@@ -5,8 +5,13 @@ import ShowMembers from './ShowMembers';
 class CardModal extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-    }
+    this.props.cards.map((c) => {
+      if(c._id === this.props.cardId){
+        this.setState({
+          card:c
+        })
+      }
+    })
   }
 
   editTitle = (title) => {
@@ -15,6 +20,16 @@ class CardModal extends React.Component {
 
   editMemo = (memo) => {
     this.props.editCard(this.props.title, memo);
+  }
+
+  editCardMembers = (member) => {
+    this.props.editCard(
+      this.state.card._id,
+      this.state.card._listId,
+      this.state.card.title,
+      this.state.card.memo,
+      member
+    )
   }
 
   render() {
@@ -28,7 +43,7 @@ class CardModal extends React.Component {
               <ShowMembers
               cardMembersId = {this.props.cardMembersId}
               members={this.props.members}
-              editCardMembers = {this.props.editCardMembers}
+              editCardMembers = {this.editCardMembers}
               />
               
             </div>

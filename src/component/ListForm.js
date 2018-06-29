@@ -28,7 +28,7 @@ class ListForm extends React.Component{
   render(){
     return(
       <div className="ListForm">
-        <BFormOrButton addList={this.addList} resetInput={this.resetInput} class={"field List box"} btnName={"리스트 추가"}>
+        <BFormOrButton addCard={this.addList} resetInput={this.resetInput} class={"field List box"} btnName={"리스트 추가"}>
           <BInput placeholder="Title" onChange={this.handleTitle} isTextarea={false} value={this.state.title}/>
         </BFormOrButton>
       </div>

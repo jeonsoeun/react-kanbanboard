@@ -50,6 +50,8 @@ body {
   height: 100%;
   margin: 0 8px;
   vertical-align: top;
+  overflow-y: auto;
+  
 }
 
 .ListForm{

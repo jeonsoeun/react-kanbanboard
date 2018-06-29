@@ -1,6 +1,6 @@
 // props: textClass text placeholder isTextarea
-import React from 'react'
-import BInput from './BInput'
+import React from 'react';
+import BInput from './BInput';
 import Markdown from './Markdown';
 
 class BFormOrText extends React.Component {

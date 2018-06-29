@@ -1,6 +1,5 @@
 import React from 'react';
 import Popup from './Popup';
-import BInput from './BInput';
 
 class ShowMembers extends React.Component {
   constructor(props) {
@@ -68,7 +67,9 @@ class ShowMembers extends React.Component {
                     src={member.image}
                     className="member-image"
                     style={styles.roundImage}
-                    title={member.nick + '(' + member.id + ')'} />
+                    title={member.nick + '(' + member.id + ')'} 
+                    alt={member.id}
+                  />
                   <span className="member is-7 name">{member.nick + ' (' + member.id + ')'}</span>
                   <p className="member-check">{this.checkCardMember(member.id)}</p>
                 </div>
