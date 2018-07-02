@@ -5,7 +5,7 @@ import EditCard from './EditCard';
 //import CardModal from './CardModal';
 import Markdown from './Markdown';
 import ShowMembers from './ShowMembers';
-import {BrowserRouter as Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 
 class Card extends React.Component {
   state = {
@@ -51,7 +51,7 @@ class Card extends React.Component {
   handleClickCard = (e) => {
     e.stopPropagation();
     this.toggleModal();
-    (<Link to={`/board/card/${this.props.card._id}`}/>)
+    
   }
 
   toggleDropdown = () => {
@@ -93,7 +93,7 @@ class Card extends React.Component {
         {
           newButtons
         }
-        <div className="Card box" onClick={this.handleClickCard}>
+        <Link to={`board/card/${this.props.card._id}`} className="Card box" onClick={this.handleClickCard}>
           <div className="field">
             <h2 className="title is-6">{this.props.card.title}</h2>
             <Markdown className="memo is-size-7" contents="aaaaa">{this.props.card.memo}</Markdown>
@@ -103,7 +103,7 @@ class Card extends React.Component {
               editCardMembers = {this.editCardMembers}
             />
           </div>
-        </div>
+        </Link>
       </div>
     )
 
@@ -125,14 +125,14 @@ class Card extends React.Component {
     //   </div>
     // )
 
-    return (
+    return (   
       <div className="Card">
         {
           this.state.isEdit ? editCardForm : card
         }
-        {
+        {/* {
           this.state.isModal && (<Link to={`/board/card/${this.props.card._id}`}/>)
-        }
+        } */}
       </div>
     )
   }

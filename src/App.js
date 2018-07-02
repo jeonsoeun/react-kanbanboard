@@ -159,7 +159,6 @@ class App extends React.Component {
         }
       })
     })
-    console.log(this.state)
   }
 
   render() {
@@ -182,7 +181,7 @@ class App extends React.Component {
     const cardModal = ({ match }) => (
       <div className="modal is-active">
         <CardModal
-          cardId={match.cardId}
+          cardId={match.params.cardId}
           cards={this.state.cards}
           editCard={this.editCard}
           members={this.state.members}
@@ -193,10 +192,10 @@ class App extends React.Component {
     return (
       <Router>
         <div className="App">
-          <Redirect to="/board" />
           <Route path="/" component={Banner} />
+          <Route exact path="/board/card/:cardId" component={cardModal} />
           <Route path="/board" component={board} />
-          <Route path="/board/card/:cardId" component={cardModal} />
+          
         </div>
       </Router>
     )

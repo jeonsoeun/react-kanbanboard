@@ -1,25 +1,37 @@
 import React from 'react';
 import BFormOrText from './BFormOrText';
 import ShowMembers from './ShowMembers';
+import {Link} from 'react-router-dom'
 
 class CardModal extends React.Component {
   constructor(props) {
     super(props);
+    this.state={
+      card:{
+      }
+    }
+
     this.props.cards.map((c) => {
-      if(c._id === this.props.cardId){
-        this.setState({
-          card:c
-        })
+      if(c._id === parseInt(props.cardId)){ 
+        this.state={
+          card:{
+            _id:c._id,
+            _listId:c._listId,
+            title:c.title,
+            memo:c.memo,
+            members:c.members
+          }
+        }
       }
     })
   }
 
   editTitle = (title) => {
-    this.props.editCard(title, this.props.memo);
+    this.props.editCard(title, this.state.card.memo);
   }
 
   editMemo = (memo) => {
-    this.props.editCard(this.props.title, memo);
+    this.props.editCard(this.state.card.title, memo);
   }
 
   editCardMembers = (member) => {
@@ -38,19 +50,18 @@ class CardModal extends React.Component {
         <div className="modal-background" onClick={this.props.toggleModal} />
         <div className="modal-content">
           <div className="box field">
-            <BFormOrText textClass="title is-5" text={this.props.title} placeholder="" isTextarea={false} setText={this.editTitle}/>
+            <BFormOrText textClass="title is-5" text={this.state.card.title} placeholder="" isTextarea={false} setText={this.editTitle}/>
             <div className="control">
               <ShowMembers
-              cardMembersId = {this.props.cardMembersId}
+              cardMembersId = {this.state.card.members}
               members={this.props.members}
               editCardMembers = {this.editCardMembers}
-              />
-              
+              />   
             </div>
-            <BFormOrText textClass="memo is-size-6" text={this.props.memo} placeholder="Add description" isTextarea={true} setText={this.editMemo} isMarkdown={true}/>
+            <BFormOrText textClass="memo is-size-6" text={this.state.card.memo} placeholder="Add description" isTextarea={true} setText={this.editMemo} isMarkdown={true}/>
           </div>
         </div>
-        <button className="modal-close is-large" onClick={this.props.toggleModal} aria-label="close"></button>
+        <Link to='/board' className="modal-close is-large" aria-label="close"></Link>
       </div>
     )
   }
