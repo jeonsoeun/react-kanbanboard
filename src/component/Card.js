@@ -5,7 +5,7 @@ import EditCard from './EditCard';
 //import CardModal from './CardModal';
 import Markdown from './Markdown';
 import ShowMembers from './ShowMembers';
-import {Link, Redirect} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 class Card extends React.Component {
   state = {
@@ -68,7 +68,7 @@ class Card extends React.Component {
 
   render() {
     const newButtons = (
-      <div className="buttons dropdown">
+      <div className="buttons dropdown is-right">
         <button className="dropdown-trigger button is-white" onClick={this.toggleDropdown}>
           <i className="fas fa-ellipsis-v"></i>
         </button>

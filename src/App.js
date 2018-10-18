@@ -192,10 +192,12 @@ class App extends React.Component {
     return (
       <Router>
         <div className="App">
-          <Route path="/" component={Banner} />
+          <Banner></Banner>
+          <Route exact path="/" render={() => (
+            <Redirect to = "/board"/>
+          )}/>
           <Route exact path="/board/card/:cardId" component={cardModal} />
           <Route path="/board" component={board} />
-          
         </div>
       </Router>
     )

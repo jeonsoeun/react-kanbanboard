@@ -13,7 +13,6 @@ class ShowMembers extends React.Component {
     this.setState({
       isAddMemeber: !this.state.isAddMemeber
     })
-    console.log(`call toggleAddMember: ${this.state.isAddMemeber}`)
   }
 
   handleAddMember = (e) => {

@@ -2,6 +2,10 @@ li{
   list-style: none;
 }
 
+button{
+  z-index: 10;
+}
+
 .box{
   margin-bottom:1.2rem;
   padding:0.9rem;
@@ -50,8 +54,7 @@ body {
   height: 100%;
   margin: 0 8px;
   vertical-align: top;
-  overflow-y: auto;
-  
+
 }
 
 .ListForm{
@@ -102,10 +105,9 @@ body {
 
 .btn-edit{
   position: absolute;
-  right:5px;
-  top: 45px;
+  right:65px;
+  top: 10px;
 }
-
 
 .buttons{
   position: absolute;
@@ -120,10 +122,10 @@ body {
 
 .dropdown-content{
   position: absolute;
-  left:80%;
-  top:20px;
+  left:0%;
+  top:90%;
   width:180px;
-  z-index: 10;
+  z-index: 30;
 }
 
 .btn-close{
